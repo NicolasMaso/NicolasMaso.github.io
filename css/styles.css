@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
 
-/* Força sempre o tema escuro, removendo variações e classes de modo claro */
 :root,
 :root.dark-mode {
   --bg-color: #121212;
@@ -96,7 +95,8 @@ header h1 {
 
 section h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
 }
 
 #sobre p,
@@ -121,23 +121,22 @@ footer p {
   margin: 0;
 }
 
-/* Projects horizontal scroll */
 .projects-container {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
   padding-bottom: 1rem;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
   align-items: flex-start;
+  margin-top: 1rem;
 }
 
-/* Ensure fixed height overrides Bootstrap h-100 for project cards */
 .projects-container .card {
-  flex: 0 0 300px;
-  display: flex; /* ensure equal-height flex cards */
+  flex: 0 0 380px;
+  display: flex;
   flex-direction: column;
-  height: 360px !important;
-  max-height: 360px !important;
+  height: 520px !important;
+  max-height: 520px !important;
   overflow: visible !important;
   transform-origin: top center !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -149,16 +148,15 @@ footer p {
   z-index: 1;
 }
 
-/* enable internal scroll for overflowing text in card bodies */
 .projects-container .card .card-body {
   flex: 1 1 auto;
-  overflow-y: auto;
-  padding-right: 0.5rem; /* optional padding to avoid scrollbar overlap */
+  overflow-y: hidden;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
 }
 
-/* Hide scrollbar but still scrollable */
 .projects-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 .projects-container::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.2);
@@ -168,7 +166,6 @@ footer p {
   background: transparent;
 }
 
-/* Projects wrapper with arrow buttons */
 .projects-wrapper {
   position: relative;
   padding-top: 0;
@@ -203,7 +200,6 @@ footer p {
   right: 1rem;
 }
 
-/* Força o gradiente de fundo em todas as principais seções, removendo o fundo sólido do Bootstrap */
 header,
 #tecnologias,
 #education,
@@ -219,7 +215,6 @@ section.bg-light {
   background-color: transparent !important;
 }
 
-/* Efeito vidro (glassmorphism) para os itens da lista de cursos */
 #courses .list-group-item {
   background: rgba(20, 30, 60, 0.45) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
@@ -238,7 +233,7 @@ section.bg-light {
 #education .card,
 #work-experience .card,
 #projetos .card {
-  background: rgba(20, 30, 60, 0.3) !important; /* antes 0.45 */
+  background: rgba(20, 30, 60, 0.3) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -265,27 +260,43 @@ section.bg-light {
   border: none !important;
 }
 
-#education .card-img-top,
-#projetos .card-img-top {
+#education .card-img-top {
   padding: 0 !important;
   margin: 0 auto 0 auto !important;
   display: block;
 }
 
-#education .card-img-top,
 #projetos .card-img-top {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#education .card-img-top {
   max-width: 120px;
   height: auto;
 }
 
-/* Ajusta a margem superior da imagem dos cards de Education para não ficar colada no topo do card */
+#projetos .card-img-top {
+  max-width: 100%;
+  height: 180px;
+  object-fit: contain;
+  padding: 10px;
+  margin-top: 15px !important;
+  transition: transform 0.3s ease-in-out;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#projetos .card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
 #education .card-img-top {
   margin-top: 24px !important;
 }
 
-/* Deixa os ícones da seção Soft Skills coloridos, igual aos de Technologies */
 #soft-skills i.fas {
-  color: #57c785; /* cor base (verde) para combinar com o gradiente */
+  color: #57c785;
   filter: drop-shadow(0 2px 6px rgba(42, 123, 155, 0.25));
   transition: color 0.2s;
 }
@@ -315,10 +326,9 @@ section.bg-light {
   filter: drop-shadow(0 2px 12px rgba(42, 123, 155, 0.35));
 }
 
-/* Scrollbar moderno para cards de experiência profissional */
 .work-scroll {
   scrollbar-width: thin; /* Firefox */
-  scrollbar-color: rgba(87, 199, 133, 0.5) rgba(30, 30, 60, 0.15); /* thumb, track */
+  scrollbar-color: rgba(87, 199, 133, 0.5) rgba(30, 30, 60, 0.15);
 }
 .work-scroll::-webkit-scrollbar {
   width: 8px;
@@ -347,7 +357,6 @@ section.bg-light {
   border-radius: 8px;
 }
 
-/* Responsividade dos cards de experiência profissional */
 @media (max-width: 1200px) {
   #work-experience .card {
     max-width: 340px !important;
@@ -380,12 +389,13 @@ section.bg-light {
 }
 #work-experience .card {
   box-sizing: border-box;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 #work-experience .row-cols-md-3 {
   flex-wrap: wrap;
 }
 
-/* Carrossel horizontal para experiência profissional */
 .work-experience-wrapper {
   position: relative;
   padding-top: 0;
@@ -472,4 +482,132 @@ section.bg-light {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+#about h2,
+#tecnologias h2,
+#soft-skills h2,
+#projetos h2,
+#work-experience h2,
+#education h2,
+#courses h2 {
+  position: relative;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+#about h2::after,
+#tecnologias h2::after,
+#soft-skills h2::after,
+#projetos h2::after,
+#work-experience h2::after,
+#education h2::after,
+#courses h2::after {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(187, 134, 252, 0.8),
+    rgba(58, 134, 255, 0.8)
+  );
+  border-radius: 3px;
+}
+
+#tecnologias .row > div {
+  margin-top: 1rem;
+}
+
+#soft-skills .row > div {
+  margin-top: 1rem;
+}
+
+.projects-container {
+  margin-top: 1rem;
+}
+
+#work-experience .card {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+#education .row {
+  margin-top: 1rem;
+}
+
+#courses .list-group {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  section h2 {
+    margin-bottom: 1.75rem;
+  }
+
+  #about h2::after,
+  #tecnologias h2::after,
+  #soft-skills h2::after,
+  #projetos h2::after,
+  #work-experience h2::after,
+  #education h2::after,
+  #courses h2::after {
+    width: 60px;
+    height: 2px;
+  }
+}
+
+#work-experience .row {
+  align-items: center;
+  justify-content: center;
+}
+
+#work-experience .card {
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#projetos .card {
+  padding-top: 5px;
+}
+
+#projetos .card-body {
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+#projetos .card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 200px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+#projetos .card-title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+#projetos .card .btn-primary {
+  margin-top: 15px;
 }

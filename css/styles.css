@@ -1,0 +1,193 @@
+/* Variáveis padrão */
+:root {
+  --bg-color: #fff;
+  --text-color: #333;
+  --header-bg: #f8f9fa;
+  --card-bg: #fff;
+  --link-color: #0069d9;
+}
+
+/* Tema Escuro */
+:root.dark-mode {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --header-bg: #1e1e1e;
+  --card-bg: #1e1e1e;
+  --link-color: #bb86fc;
+}
+
+/* Override bootstrap bg-light in dark mode */
+:root.dark-mode .bg-light {
+  background-color: var(--bg-color) !important;
+}
+
+/* Adjust footer background in dark mode */
+:root.dark-mode footer {
+  background-color: var(--header-bg) !important;
+}
+
+:root.dark-mode a.text-dark {
+  color: var(--text-color) !important;
+}
+
+/* Ensure full page background and elements obey dark mode */
+:root.dark-mode html,
+:root.dark-mode body {
+  background-color: var(--bg-color) !important;
+}
+
+:root.dark-mode .bg-light,
+:root.dark-mode header,
+:root.dark-mode section.bg-light {
+  background-color: var(--header-bg) !important;
+}
+
+:root.dark-mode .card,
+:root.dark-mode .card .card-img-top {
+  background-color: var(--card-bg) !important;
+}
+
+:root.dark-mode footer {
+  background-color: var(--header-bg) !important;
+}
+
+:root.dark-mode a.text-dark,
+:root.dark-mode a.btn-outline-secondary {
+  color: var(--text-color) !important;
+  border-color: var(--text-color) !important;
+}
+
+/* Dark mode text overrides */
+:root.dark-mode .text-muted {
+  color: var(--text-color) !important;
+}
+
+:root.dark-mode h5.card-title,
+:root.dark-mode p.card-text {
+  color: var(--text-color) !important;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+header {
+  background-color: var(--header-bg);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#sobre p,
+#projetos p {
+  font-size: 1.1rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+}
+
+.card .btn-primary {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: var(--link-color);
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Projects horizontal scroll */
+.projects-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: none; /* Firefox */
+  align-items: flex-start;
+}
+
+/* Ensure fixed height overrides Bootstrap h-100 for project cards */
+.projects-container .card {
+  flex: 0 0 300px;
+  display: flex; /* ensure equal-height flex cards */
+  flex-direction: column;
+  height: 360px !important;
+  max-height: 360px !important;
+  overflow: visible !important;
+  transform-origin: top center !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects-container .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* enable internal scroll for overflowing text in card bodies */
+.projects-container .card .card-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-right: 0.5rem; /* optional padding to avoid scrollbar overlap */
+}
+
+/* Hide scrollbar but still scrollable */
+.projects-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.projects-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.projects-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Projects wrapper with arrow buttons */
+.projects-wrapper {
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+#scroll-left {
+  left: 1rem;
+}
+
+#scroll-right {
+  right: 1rem;
+}

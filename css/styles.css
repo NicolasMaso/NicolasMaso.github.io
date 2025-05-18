@@ -1,13 +1,8 @@
-/* Variáveis padrão */
-:root {
-  --bg-color: #fff;
-  --text-color: #333;
-  --header-bg: #f8f9fa;
-  --card-bg: #fff;
-  --link-color: #0069d9;
-}
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
 
-/* Tema Escuro */
+/* Força sempre o tema escuro, removendo variações e classes de modo claro */
+:root,
 :root.dark-mode {
   --bg-color: #121212;
   --text-color: #e0e0e0;
@@ -16,62 +11,78 @@
   --link-color: #bb86fc;
 }
 
-/* Override bootstrap bg-light in dark mode */
-:root.dark-mode .bg-light {
+html,
+body {
   background-color: var(--bg-color) !important;
-}
-
-/* Adjust footer background in dark mode */
-:root.dark-mode footer {
-  background-color: var(--header-bg) !important;
-}
-
-:root.dark-mode a.text-dark {
   color: var(--text-color) !important;
 }
 
-/* Ensure full page background and elements obey dark mode */
-:root.dark-mode html,
-:root.dark-mode body {
-  background-color: var(--bg-color) !important;
+.bg-light,
+header,
+section.bg-light,
+#tecnologias,
+#education,
+#courses .container,
+#courses {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
-:root.dark-mode .bg-light,
-:root.dark-mode header,
-:root.dark-mode section.bg-light {
-  background-color: var(--header-bg) !important;
-}
-
-:root.dark-mode .card,
-:root.dark-mode .card .card-img-top {
+.card,
+.card .card-img-top {
   background-color: var(--card-bg) !important;
 }
 
-:root.dark-mode footer {
+footer {
   background-color: var(--header-bg) !important;
 }
 
-:root.dark-mode a.text-dark,
-:root.dark-mode a.btn-outline-secondary {
+a.text-dark,
+a.btn-outline-secondary {
   color: var(--text-color) !important;
   border-color: var(--text-color) !important;
 }
 
-/* Dark mode text overrides */
-:root.dark-mode .text-muted {
+.text-muted {
   color: var(--text-color) !important;
 }
 
-:root.dark-mode h5.card-title,
-:root.dark-mode p.card-text {
+h5.card-title,
+p.card-text {
+  color: var(--text-color) !important;
+}
+
+#courses,
+#courses .list-group-item {
+  background-color: var(--header-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.work-description {
+  background-color: transparent !important;
+  color: var(--text-color) !important;
+}
+
+.list-group-item {
+  background-color: var(--header-bg) !important;
   color: var(--text-color) !important;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Merriweather", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--bg-color);
+  background-image: radial-gradient(
+    circle 700px at 50% 50.2%,
+    rgba(73, 76, 212, 1) 0.1%,
+    rgba(3, 1, 50, 1) 100.2%
+  );
+  background-attachment: fixed;
+}
+
+html {
+  background: transparent;
 }
 
 header {
@@ -190,4 +201,275 @@ footer p {
 
 #scroll-right {
   right: 1rem;
+}
+
+/* Força o gradiente de fundo em todas as principais seções, removendo o fundo sólido do Bootstrap */
+header,
+#tecnologias,
+#education,
+.bg-light,
+section.bg-light {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+#courses .container,
+#courses {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Efeito vidro (glassmorphism) para os itens da lista de cursos */
+#courses .list-group-item {
+  background: rgba(20, 30, 60, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff !important;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+#courses .list-group-item h5,
+#courses .list-group-item p {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+#education .card,
+#work-experience .card,
+#projetos .card {
+  background: rgba(20, 30, 60, 0.3) !important; /* antes 0.45 */
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff !important;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+#education .card h5,
+#education .card p,
+#work-experience .card h5,
+#work-experience .card p,
+#projetos .card h5,
+#projetos .card p {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+#education .card-img-top,
+#education .card img,
+#projetos .card-img-top,
+#projetos .card img {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+#education .card-img-top,
+#projetos .card-img-top {
+  padding: 0 !important;
+  margin: 0 auto 0 auto !important;
+  display: block;
+}
+
+#education .card-img-top,
+#projetos .card-img-top {
+  max-width: 120px;
+  height: auto;
+}
+
+/* Ajusta a margem superior da imagem dos cards de Education para não ficar colada no topo do card */
+#education .card-img-top {
+  margin-top: 24px !important;
+}
+
+/* Deixa os ícones da seção Soft Skills coloridos, igual aos de Technologies */
+#soft-skills i.fas {
+  color: #57c785; /* cor base (verde) para combinar com o gradiente */
+  filter: drop-shadow(0 2px 6px rgba(42, 123, 155, 0.25));
+  transition: color 0.2s;
+}
+#soft-skills i.fas.fa-comments {
+  color: #3a86ff;
+}
+#soft-skills i.fas.fa-sync-alt {
+  color: #2a7b9b;
+}
+#soft-skills i.fas.fa-random {
+  color: #eddd53;
+}
+#soft-skills i.fas.fa-users {
+  color: #4361ee;
+}
+#soft-skills i.fas.fa-clock {
+  color: #bb86fc;
+}
+#soft-skills i.fas.fa-lightbulb {
+  color: #f9c846;
+}
+#soft-skills i.fas.fa-rocket {
+  color: #ff6f61;
+}
+#soft-skills i.fas:hover {
+  color: #fff;
+  filter: drop-shadow(0 2px 12px rgba(42, 123, 155, 0.35));
+}
+
+/* Scrollbar moderno para cards de experiência profissional */
+.work-scroll {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(87, 199, 133, 0.5) rgba(30, 30, 60, 0.15); /* thumb, track */
+}
+.work-scroll::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 8px;
+  background: transparent;
+}
+.work-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    135deg,
+    rgba(87, 199, 133, 0.7) 0%,
+    rgba(58, 134, 255, 0.5) 100%
+  );
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+.work-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(87, 199, 133, 1) 0%,
+    rgba(58, 134, 255, 0.8) 100%
+  );
+}
+.work-scroll::-webkit-scrollbar-track {
+  background: rgba(30, 30, 60, 0.1);
+  border-radius: 8px;
+}
+
+/* Responsividade dos cards de experiência profissional */
+@media (max-width: 1200px) {
+  #work-experience .card {
+    max-width: 340px !important;
+    min-width: 0 !important;
+  }
+}
+@media (max-width: 992px) {
+  #work-experience .row-cols-md-3 > .col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  #work-experience .card {
+    max-width: 95vw !important;
+    min-width: 0 !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 768px) {
+  #work-experience .row-cols-md-3 > .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  #work-experience .card {
+    max-width: 98vw !important;
+    min-width: 0 !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+#work-experience .card {
+  box-sizing: border-box;
+}
+#work-experience .row-cols-md-3 {
+  flex-wrap: wrap;
+}
+
+/* Carrossel horizontal para experiência profissional */
+.work-experience-wrapper {
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.work-experience-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  align-items: stretch;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.work-experience-container::-webkit-scrollbar {
+  display: none;
+}
+.work-experience-container .card {
+  flex: 0 0 340px;
+  max-width: 420px;
+  min-width: 320px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 340px !important;
+  max-height: 360px !important;
+  overflow: visible !important;
+  transform-origin: top center !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.work-experience-container .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.work-experience-container .card .card-body {
+  flex: 1 1 auto;
+  overflow-y: visible;
+  padding-right: 0.5rem;
+}
+.scroll-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+}
+#work-scroll-left {
+  left: 1rem;
+}
+#work-scroll-right {
+  right: 1rem;
+}
+@media (max-width: 1200px) {
+  .work-experience-container .card {
+    max-width: 340px !important;
+    min-width: 0 !important;
+  }
+}
+@media (max-width: 992px) {
+  .work-experience-container .card {
+    max-width: 95vw !important;
+    min-width: 0 !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 768px) {
+  .work-experience-container .card {
+    max-width: 98vw !important;
+    min-width: 0 !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

@@ -81,12 +81,27 @@ body {
   padding-top: 90px;
 }
 
-body {
-  padding-top: 70px;
+header#home {
 }
 
-html {
-  background: transparent;
+.navbar.fixed-top.navbar-dark {
+  background-color: transparent !important;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-dark .navbar-collapse {
+    background-color: #283a5a;
+    padding: 1rem;
+    border-radius: 0.25rem;
+  }
+
+  .navbar-dark .navbar-nav .nav-item {
+    width: 100%;
+  }
+  .navbar-dark .navbar-nav .nav-link {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
 }
 
 header {
@@ -675,6 +690,54 @@ header {
   }
   .hero-image {
     margin-top: 2rem;
+  }
+
+  /* Scrollbar moderno para descrição de projetos em mobile */
+  #projetos .card-text {
+    display: block; /* Remover o line-clamp para permitir scroll */
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow-y: auto; /* Habilitar scroll vertical quando necessário */
+    text-overflow: clip; /* Mudar de ellipsis para clip */
+    /* max-height: 200px; já está definido globalmente e é o que vai gerar o scroll */
+
+    /* Estilos da scrollbar para Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(187, 134, 252, 0.6) rgba(20, 30, 60, 0.1); /* Cor do polegar e da trilha */
+  }
+
+  /* Estilos da scrollbar para WebKit (Chrome, Safari, Edge) */
+  #projetos .card-text::-webkit-scrollbar {
+    width: 6px; /* Largura da scrollbar */
+  }
+
+  #projetos .card-text::-webkit-scrollbar-track {
+    background: rgba(
+      20,
+      30,
+      60,
+      0.1
+    ); /* Cor da trilha (um pouco transparente) */
+    border-radius: 3px;
+  }
+
+  #projetos .card-text::-webkit-scrollbar-thumb {
+    background: rgba(
+      187,
+      134,
+      252,
+      0.6
+    ); /* Cor do polegar (roxo do tema, um pouco transparente) */
+    border-radius: 3px;
+  }
+
+  #projetos .card-text::-webkit-scrollbar-thumb:hover {
+    background: rgba(
+      187,
+      134,
+      252,
+      0.8
+    ); /* Cor do polegar ao passar o mouse (mais opaco) */
   }
 }
 

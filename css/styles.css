@@ -72,11 +72,19 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--bg-color);
-  background-image: radial-gradient(
-    circle 700px at 50% 50.2%,
-    rgba(73, 76, 212, 1) 0.1%,
-    rgba(3, 1, 50, 1) 100.2%
-  );
+
+  /* background: #0f2027;
+  background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027); */
+
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+
+  /* background: #a73737;
+  background: -webkit-linear-gradient(to right, #7a2828, #a73737);
+  background: linear-gradient(to right, #7a2828, #a73737); */
+
   background-attachment: fixed;
   padding-top: 90px;
 }
@@ -90,17 +98,27 @@ header#home {
 
 @media (max-width: 991.98px) {
   .navbar-dark .navbar-collapse {
-    background-color: #283a5a;
-    padding: 1rem;
-    border-radius: 0.25rem;
+    background-color: rgb(45, 26, 99);
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .navbar-dark .navbar-nav .nav-item {
     width: 100%;
   }
   .navbar-dark .navbar-nav .nav-link {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    color: #f0f0f0;
+    margin: 0.2rem 0;
+  }
+
+  .navbar-dark .navbar-nav .nav-link:hover,
+  .navbar-dark .navbar-nav .nav-link:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
   }
 }
 
@@ -133,8 +151,26 @@ section h2 {
 }
 
 .card .btn-primary {
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: rgb(76, 47, 134);
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.card .btn-primary:hover,
+.card .btn-primary:focus,
+.card .btn-primary:active {
+  background-color: rgb(63, 45, 100);
+  border-color: rgb(63, 45, 100);
+  color: #fff;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.card .btn-primary:focus,
+.card .btn-primary.focus {
+  outline: 0;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 a {
@@ -351,7 +387,7 @@ section.bg-light {
 }
 
 .work-scroll {
-  scrollbar-width: thin; /* Firefox */
+  scrollbar-width: thin;
   scrollbar-color: rgba(87, 199, 133, 0.5) rgba(30, 30, 60, 0.15);
 }
 .work-scroll::-webkit-scrollbar {
@@ -692,52 +728,33 @@ header {
     margin-top: 2rem;
   }
 
-  /* Scrollbar moderno para descrição de projetos em mobile */
   #projetos .card-text {
-    display: block; /* Remover o line-clamp para permitir scroll */
+    display: block;
     -webkit-line-clamp: unset;
     -webkit-box-orient: unset;
-    overflow-y: auto; /* Habilitar scroll vertical quando necessário */
-    text-overflow: clip; /* Mudar de ellipsis para clip */
-    /* max-height: 200px; já está definido globalmente e é o que vai gerar o scroll */
+    overflow-y: auto;
+    text-overflow: clip;
 
-    /* Estilos da scrollbar para Firefox */
     scrollbar-width: thin;
-    scrollbar-color: rgba(187, 134, 252, 0.6) rgba(20, 30, 60, 0.1); /* Cor do polegar e da trilha */
+    scrollbar-color: rgba(187, 134, 252, 0.6) rgba(20, 30, 60, 0.1);
   }
 
-  /* Estilos da scrollbar para WebKit (Chrome, Safari, Edge) */
   #projetos .card-text::-webkit-scrollbar {
-    width: 6px; /* Largura da scrollbar */
+    width: 6px;
   }
 
   #projetos .card-text::-webkit-scrollbar-track {
-    background: rgba(
-      20,
-      30,
-      60,
-      0.1
-    ); /* Cor da trilha (um pouco transparente) */
+    background: rgba(20, 30, 60, 0.1);
     border-radius: 3px;
   }
 
   #projetos .card-text::-webkit-scrollbar-thumb {
-    background: rgba(
-      187,
-      134,
-      252,
-      0.6
-    ); /* Cor do polegar (roxo do tema, um pouco transparente) */
+    background: rgba(187, 134, 252, 0.6);
     border-radius: 3px;
   }
 
   #projetos .card-text::-webkit-scrollbar-thumb:hover {
-    background: rgba(
-      187,
-      134,
-      252,
-      0.8
-    ); /* Cor do polegar ao passar o mouse (mais opaco) */
+    background: rgba(187, 134, 252, 0.8);
   }
 }
 
@@ -749,7 +766,7 @@ header {
   z-index: 1031;
   border: none;
   outline: none;
-  background-color: #007bff;
+  background-color: rgb(113, 85, 167);
   color: white;
   cursor: pointer;
   padding: 0;
@@ -764,9 +781,25 @@ header {
 }
 
 #scrollToTopBtn:hover {
-  background-color: #0056b3;
+  background-color: rgb(63, 45, 100);
 }
 
 #scrollToTopBtn i {
   vertical-align: middle;
+}
+
+#education .btn-outline-primary {
+  background-color: rgb(76, 47, 134);
+  border-color: rgb(76, 47, 134);
+  color: #fff;
+  box-shadow: none !important; /* Remove qualquer sombra */
+}
+
+#education .btn-outline-primary:hover,
+#education .btn-outline-primary:focus,
+#education .btn-outline-primary:active {
+  background-color: rgb(63, 45, 100);
+  border-color: rgb(63, 45, 100);
+  color: #fff;
+  box-shadow: none !important;
 }
